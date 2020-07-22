@@ -51,3 +51,8 @@
 18. Faker library to create script that will populate our model with some dummy data
 
 19. Django - MTV (Models-Templates-Views)
+
+20. Cross-Site-Request Forgery (CSRF) token, which secures the HTTP Post action that is initiated on the subsequent submission of a form.
+	{% csrf_token %}
+
+21. {{ form.as_p }} – Render Django Forms as paragraph

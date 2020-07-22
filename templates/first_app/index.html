@@ -5,29 +5,33 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="{% static 'css/style.css' %}" />
         <title>First App</title>
 </head>
 
 <body>
         <h1>This is index html file</h1>
-        <div>
-                {% if access_records %}
-                <table>
-                        <tr>
-                                <th>Site Name</th>
-                                <th>Date Accessed</th>
-                        </tr>
-                        {% for acc in access_records %}
-                        <tr>
-                                <td>{{ acc.name }}</td>
-                                <td>{{ acc.date }}</td>
-                        </tr>
-                        {% endfor %}
-                </table>
-                {% else %}
-                <p>No Record found</p>
-                {% endif %}
+        <h2>Go to /first_app/formpage to fill form</h2>
+        <div class="container">
+                <div>
+                        {% if access_records %}
+                        <table>
+                                <tr>
+                                        <th>Site Name</th>
+                                        <th>Date Accessed</th>
+                                </tr>
+                                {% for acc in access_records %}
+                                <tr>
+                                        <td>{{ acc.name }}</td>
+                                        <td>{{ acc.date }}</td>
+                                </tr>
+                                {% endfor %}
+                        </table>
+                        {% else %}
+                        <p>No Record found</p>
+                        {% endif %}
+                </div>
         </div>
         <img src="{% static 'images/ball_640x480.jpg' %}" alt="loading..." />
 </body>
