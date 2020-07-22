@@ -19,6 +19,6 @@ from first_app import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    re_path(r'^first_app/', include('first_app.urls')),
     path('admin/', admin.site.urls),
+    re_path(r'^first_app/', include('first_app.urls')),
 ]

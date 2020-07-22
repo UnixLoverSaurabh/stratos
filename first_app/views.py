@@ -19,3 +19,9 @@ def form_name_view(request):
             print("Text: " + form.cleaned_data['text'])
 
     return render(request, 'first_app/form_page.html', {'form': form})
+
+def other(request):
+    return render(request, 'first_app/other.html')
+
+def relative(request):
+    return render(request, 'first_app/relative_url_templates.html')

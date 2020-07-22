@@ -56,3 +56,15 @@
 	{% csrf_token %}
 
 21. {{ form.as_p }} – Render Django Forms as paragraph
+
+22. Relative URLs with templates
+	Method-1:
+		<a href="{% url 'thanku' %}">Thanks</a>
+		name='thanku' is in the urls.py file
+
+	Method-2:
+		<a href="{% url 'first_app.views.thanku' %}">Thanks</a>
+
+	Method-3:
+		<a href="{% url 'first_app:thanku' %}">Thanks</a>
+		this method requires that app_name variable to be created inside the urls.py file
