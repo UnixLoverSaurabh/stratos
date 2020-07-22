@@ -49,3 +49,5 @@
 17. $ python manage.py createsuperuser
 
 18. Faker library to create script that will populate our model with some dummy data
+
+19. Django - MTV (Models-Templates-Views)
