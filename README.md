@@ -68,3 +68,18 @@
 	Method-3:
 		<a href="{% url 'first_app:thanku' %}">Thanks</a>
 		this method requires that app_name variable to be created inside the urls.py file
+
+23. URL Template Inheritance or Template extending is extending the base.html to other .html files
+	* base.html
+		<body>
+			{% block body_block %}
+			{% endblock %}
+		</body>
+	
+	* other.html
+		<!DOCTYPE html>
+		{% extends "first_app/base.html" %}
+		{% block body_block %}
+		<HTML specific for other.html>
+		<HTML specific for other.html>
+		{% endblock %}
