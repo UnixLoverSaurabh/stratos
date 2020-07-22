@@ -25,3 +25,6 @@
 
 11. Migrations folder
 	stores database specific information as it relates to the models
+
+12. {{}} used for simple text injection
+	{%%} used for more complex injections and logic
