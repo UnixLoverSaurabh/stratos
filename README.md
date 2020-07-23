@@ -28,25 +28,25 @@
 11. Migrations folder <br>
 	stores database specific information as it relates to the models
 
-12. {{}} used for simple text injection
+12. {{}} used for simple text injection <br>
 	{%%} used for more complex injections and logic
 
 13. Django comes equipped with SQLite
 
 14. $ python manage.py migrate
 
-15. Register the changes to our application
-	$ python manage.py makemigrations first_app
+15. Register the changes to our application <br>
+	$ python manage.py makemigrations first_app <br>
 	$ python manage.py migrate
 
 16. $ python manage.py shell
-	<code>
+	<pre>
 		>>> from first_app.models import Topic
 		>>> t = Topic(top_name="Social Network")
 		>>> t.save()
 		>>> print(Topic.objects.all())
 		>>> quit()
-	</code>
+	</pre>
 
 17. $ python manage.py createsuperuser
 
@@ -61,33 +61,37 @@
 
 22. Relative URLs with templates
 	Method-1:
-		<code>
+		<pre>
 			<a href="{% url 'thanku' %}">Thanks</a>
 			name='thanku' is in the urls.py file
-		</code>
+		</pre>
 
 	Method-2:
-		<code>
+		<pre>
 			<a href="{% url 'first_app.views.thanku' %}">Thanks</a>
-		</code>
+		</pre>
 
 	Method-3:
-		<code>
+		<pre>
 			<a href="{% url 'first_app:thanku' %}">Thanks</a>
 			this method requires that app_name variable to be created inside the urls.py file
-		</code>
+		</pre>
 
 23. URL Template Inheritance or Template extending is extending the base.html to other .html files
 	* base.html
-		<body>
-			{% block body_block %}
-			{% endblock %}
-		</body>
+		<pre>
+			<body>
+				{% block body_block %}
+				{% endblock %}
+			</body>
+		</pre>
 	
 	* other.html
-		<!DOCTYPE html>
-		{% extends "first_app/base.html" %}
-		{% block body_block %}
-		<HTML specific for other.html>
-		<HTML specific for other.html>
-		{% endblock %}
+		<pre>
+			<!DOCTYPE html>
+			{% extends "first_app/base.html" %}
+			{% block body_block %}
+			<HTML specific for other.html>
+			<HTML specific for other.html>
+			{% endblock %}
+		</pre>
