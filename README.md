@@ -61,37 +61,37 @@
 
 22. Relative URLs with templates
 	Method-1:
-		<pre>
+		```
 			<a href="{% url 'thanku' %}">Thanks</a>
 			name='thanku' is in the urls.py file
-		</pre>
+		```
 
 	Method-2:
-		<pre>
+		```
 			<a href="{% url 'first_app.views.thanku' %}">Thanks</a>
-		</pre>
+		```
 
 	Method-3:
-		<pre>
+		```
 			<a href="{% url 'first_app:thanku' %}">Thanks</a>
 			this method requires that app_name variable to be created inside the urls.py file
-		</pre>
+		```
 
 23. URL Template Inheritance or Template extending is extending the base.html to other .html files
 	* base.html
-		<pre>
+		```
 			<body>
 				{% block body_block %}
 				{% endblock %}
 			</body>
-		</pre>
+		```
 	
 	* other.html
-		<pre>
+		```
 			<!DOCTYPE html>
 			{% extends "first_app/base.html" %}
 			{% block body_block %}
 			<HTML specific for other.html>
 			<HTML specific for other.html>
 			{% endblock %}
-		</pre>
+		```
