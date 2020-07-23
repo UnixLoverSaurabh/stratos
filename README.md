@@ -98,3 +98,10 @@
 
 24. General form for a template filter <br>
 	{{ value|filter:'parameter' }}
+
+25. Django Password
+	PBKDF2 algorithms with a SHA256 hash, built-in to Django <br>
+	```
+	$ pip install bcrypt
+	$ pip install django[argon2]
+	```
