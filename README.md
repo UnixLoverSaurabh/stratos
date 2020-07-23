@@ -6,26 +6,26 @@
 
 4. $ python manage.py startapp first_app
 
-5. __init__.py
+5. __init__.py <br>
 	Blank python script,
 	python know that this directory can be treated as a package
 
-6. admin.py
+6. admin.py <br>
 	We can register our models here which Django will then use them with Django's admin interface
 
-7. apps.py
+7. apps.py <br>
 	Application specific configurations
 
-8. models.py
+8. models.py <br>
 	store the application's data models
 
-9. tests.py
+9. tests.py <br>
 	store test functions to test our code
 
-10. views.py
+10. views.py <br>
 	functions that handle requests and return responses
 
-11. Migrations folder
+11. Migrations folder <br>
 	stores database specific information as it relates to the models
 
 12. {{}} used for simple text injection
@@ -40,11 +40,13 @@
 	$ python manage.py migrate
 
 16. $ python manage.py shell
-	>>> from first_app.models import Topic
-	>>> t = Topic(top_name="Social Network")
-	>>> t.save()
-	>>> print(Topic.objects.all())
-	>>> quit()
+	<code>
+		>>> from first_app.models import Topic
+		>>> t = Topic(top_name="Social Network")
+		>>> t.save()
+		>>> print(Topic.objects.all())
+		>>> quit()
+	</code>
 
 17. $ python manage.py createsuperuser
 
@@ -59,15 +61,21 @@
 
 22. Relative URLs with templates
 	Method-1:
-		<a href="{% url 'thanku' %}">Thanks</a>
-		name='thanku' is in the urls.py file
+		<code>
+			<a href="{% url 'thanku' %}">Thanks</a>
+			name='thanku' is in the urls.py file
+		</code>
 
 	Method-2:
-		<a href="{% url 'first_app.views.thanku' %}">Thanks</a>
+		<code>
+			<a href="{% url 'first_app.views.thanku' %}">Thanks</a>
+		</code>
 
 	Method-3:
-		<a href="{% url 'first_app:thanku' %}">Thanks</a>
-		this method requires that app_name variable to be created inside the urls.py file
+		<code>
+			<a href="{% url 'first_app:thanku' %}">Thanks</a>
+			this method requires that app_name variable to be created inside the urls.py file
+		</code>
 
 23. URL Template Inheritance or Template extending is extending the base.html to other .html files
 	* base.html
