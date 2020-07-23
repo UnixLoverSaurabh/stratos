@@ -105,3 +105,15 @@
 	$ pip install bcrypt
 	$ pip install django[argon2]
 	```
+
+26. Topics to learn
+	* ORMs
+	* Advanced User Authorization
+	* Socail Login
+	* Payment
+	* REST APIs
+	* Encryption
+	* Testing
+	* Sessions
+	* Cookies
+	* Class-Based Views
