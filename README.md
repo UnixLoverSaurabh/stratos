@@ -95,3 +95,6 @@
 			<HTML specific for other.html>
 			{% endblock %}
 		```
+
+24. General form for a template filter <br>
+	{{ value|filter:'parameter' }}

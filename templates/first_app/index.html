@@ -25,7 +25,7 @@
                                 </tr>
                                 {% for acc in access_records %}
                                 <tr>
-                                        <td>{{ acc.name }}</td>
+                                        <td>{{ acc.name|cut:'Tu' }}</td>
                                         <td>{{ acc.date }}</td>
                                 </tr>
                                 {% endfor %}
