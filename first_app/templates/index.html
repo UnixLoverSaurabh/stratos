@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+index page
+{% endblock %}
+
+{% block after-navbar %}
+{% if submitbutton == 'Submit' %}
+<div class="container">
+        <h1>Welcome {{ name }} </h1>
+        <h2>{{ contact }} </h2>
+        <h3>{{ email }} </h3>
+</div>
+{% endif %}
+
+<div class="container">
+        <form method="POST" class="jumbotron">
+                {% csrf_token %}
+                <h2>{{ empData.as_p }}</h2>
+                <input type="submit" value="Submit" name="submit" />
+        </form>
+
+        <img src="{% static '/images/first.jpeg' %}" alt="Loading" width="1000px" height="500px" />
+</div>
+{% endblock %}
+
+<h1>Outside of navbar block in index.html</h1>

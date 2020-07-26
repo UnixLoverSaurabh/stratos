@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block after-navbar %}
+        <center>
+                <h1 class='alert alert-success'>Subscribe Form</h1>
+          
+                <form method="POST">
+                        <!-- Very Important csrf Token -->
+                        {% csrf_token %}
+                        <div class="form-group">
+                                <p>
+                                <h3>{{ form.as_p }}</h3>
+                                </p>
+                                <br>
+                                <input type="submit" name="Subscribe" class='btn btn-primary btn-lg'>
+                        </div>
+                </form>
+        </center>
+{% endblock %}

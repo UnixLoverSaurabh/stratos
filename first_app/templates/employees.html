@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+index page
+{% endblock %}
+
+{% block after-navbar %}
+<h1>List of all Employees</h1>
+<table class="table table-striped table-bordered">
+        <tr>
+                <th>
+                        <h2>Id</h2>
+                </th>
+                <th>
+                        <h2>Name</h2>
+                </th>
+                <th>
+                        <h2>Email</h2>
+                </th>
+                <th>
+                        <h2>Contact</h2>
+                </th>
+        </tr>
+        {% for entry in empRecords %}
+        <tr>
+                <td>
+                        <h2>{{ entry.id }}</h2>
+                </td>
+                <td>
+                        <h2>{{ entry.first_name }} {{ entry.last_name }}</h2>
+                </td>
+                <td>
+                        <h2>{{ entry.email }}</h2>
+                </td>
+                <td>
+                        <h2>{{ entry.contact }}</h2>
+                </td>
+        </tr>
+        {% endfor %}
+</table>
+{% endblock %}
