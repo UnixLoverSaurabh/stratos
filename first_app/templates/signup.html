@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Login
+SignUp
 {% endblock %}
 
 {% block after-navbar %}
 
 <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ signupForm.as_p }}
         <input type="submit" value="Submit">
 </form>
 

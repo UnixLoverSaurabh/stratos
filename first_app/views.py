@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.http import require_http_methods
+
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 from first_app.forms import EmployeeForm, Subscribe
 from first_app.models import Employee
@@ -66,3 +69,17 @@ def subscribe(request):
 
                 return render(request, 'success.html', {'recepient': recepient})
         return render(request, 'contact.html', {'form': sub})
+
+def signup(request):
+        signupForm = UserCreationForm()
+        if request.method == 'POST':
+                signupForm = UserCreationForm(request.POST)
+                if signupForm.is_valid():
+                        signupForm.save()
+
+                        username = signupForm.cleaned_data.get('username')
+                        raw_password = signupForm.cleaned_data.get('password')
+                        user = authenticate(username=username, password=raw_password)
+                        login(request, user)
+                        return redirect('home')                        
+        return render(request, 'signup.html', {'signupForm': signupForm})
