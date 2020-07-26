@@ -112,3 +112,6 @@ A task is a class that can be created out of any callable. It performs dual role
 
 25. Concurrency with Eventlet
 	The Eventlet homepage describes it as a concurrent networking library for Python that allows you to change how you run your code, not how you write it.
+
+26. User authentication and permissions
+	https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication
