@@ -30,9 +30,9 @@ That message broker server will use Redis — an in-memory data store — to mai
 
 7. Celery 4.0+ does not officially support Windows yet. But it still works on Windows for some development/test purposes.
 
-Use eventlet instead as below:
-	$ pip install eventlet
-	$ celery -A <module_name> worker -l info -P eventlet
+Use gevent instead as below: <br>
+* $ pip install gevent
+* $ celery -A <module_name> worker -l info -P gevent
 
 8. Get list of packages installed in Anaconda
 	* $ conda list
