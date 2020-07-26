@@ -82,6 +82,7 @@
 		```
 			<body>
 				{% block body_block %}
+				    Anything outside of this will be inherited if you extend!
 				{% endblock %}
 			</body>
 		```
@@ -117,3 +118,10 @@
 	* Sessions
 	* Cookies
 	* Class-Based Views
+
+27. WSGI Servers <br>
+A Web Server Gateway Interface (WSGI) server implements the web server side of the WSGI interface for running Python web applications.
+
+28. What is an ORM?
+	Object-Relational-Mapper
+	Depending on the ORM you get a lot of advanced features out of the box, such as support for transactions, connection pooling, migrations, seeds, streams
