@@ -83,3 +83,6 @@ def signup(request):
                         login(request, user)
                         return redirect('home')                        
         return render(request, 'signup.html', {'signupForm': signupForm})
+
+def userProfile(request):
+        return render(request, 'profile.html')

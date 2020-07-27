@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}
-index page
+{% block title %} index page {% endblock %}
+
+{% block loginStatus %}
+{% if user.is_authenticated %}
+<li><a href="{% url 'first_app:userProfile' %}"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
+<li><a href="{% url 'first_app:logout' %}"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+{% else %}
+<li><a href="{% url 'first_app:signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+<li><a href="{% url 'first_app:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+{% endif %}
 {% endblock %}
 
+
 {% block after-navbar %}
-
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'first_app:login' %}">login</a>
-{% endif %}
-
-
 {% if submitbutton == 'Submit' %}
 <div class="container">
         <h1>Welcome {{ name }} </h1>

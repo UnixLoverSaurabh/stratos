@@ -115,3 +115,6 @@ A task is a class that can be created out of any callable. It performs dual role
 
 26. User authentication and permissions
 	https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication
+
+27. Login and log out redirection
+	https://learndjango.com/tutorials/django-login-and-logout-tutorial
