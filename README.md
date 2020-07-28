@@ -102,3 +102,35 @@
 	* Start Kafka in another command line: <br>
 		C:\kafka_2.13-2.5.0> kafka-server-start.bat config\server.properties
 
+10. * $ kafka-topics
+	* $ kafka-topics --bootstrap-server localhost:9092 --topic first_topic --create
+	* $ kafka-topics --zookeeper localhost:2181 --topic first_topic --create --partitions 3 --replication-factor 1
+	* $ kafka-topics --zookeeper localhost:2181 --list
+	* $ kafka-topics --zookeeper localhost:2181 --topic first_topic --describe
+	* $ kafka-topics --zookeeper localhost:2181 --topic first_topic --delete
+
+11.	* $ kafka-console-producer
+	* $ kafka-console-producer --broker-list localhost:9092 --topic first_topic
+	* $ kafka-console-producer --broker-list localhost:9092 --topic first_topic --producer-property acks=all
+
+12.	* $ kafka-console-consumer
+	* $ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic
+	* $ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning
+	* $ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-first-application
+
+13.	* $ kafka-consumer-group
+	* $ kafka-consumer-groups --bootstrap-server localhost:9092 --list
+	* $ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group my-first-application
+	* $ kafka-consumer-groups --bootstrap-server localhost:9092 --topic first_topic --group my-first-application
+	* $ kafka-consumer-groups --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --to-earliest --execute --topic first_topic
+	* $ kafka-consumer-groups --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --shift-by 2 --execute --topic first_topic
+	* $ kafka-consumer-groups --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --shift-by -2 --execute --topic first_topic
+
+14.	Producer with keys
+	* $ kafka-console-producer --broker-list localhost:9092 --topic first_topic --property parse.key=true --property key.separator=:
+    key1:value1
+	key2:value2
+	key3:value3
+
+15. Consumer with keys
+    * $ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning --property print.key=true --property key.separator=:
