@@ -136,6 +136,7 @@ CELERY_STORE_ERRORS_EVEN_IF_IGNORED = True
 CELERY_RESULT_BACKEND = 'django-db'
 # CELERY_CACHE_BACKEND = 'django-cache'
 
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
 
 # Mail
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

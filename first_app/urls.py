@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path, include, re_path
 from first_app import views
 
 # Template Tagging
@@ -10,5 +10,6 @@ urlpatterns = [
         path('profile/', views.userProfile, name='userProfile'),
         path('emp/', views.showDatabaseRecords, name='employees'),
         path('contact/', views.subscribe, name='contact'),
-        path('accounts/', include('django.contrib.auth.urls')),
+        re_path('^', include('django.contrib.auth.urls')),
+        re_path(r'^password_reset/$', auth_views.password_reset),
 ]

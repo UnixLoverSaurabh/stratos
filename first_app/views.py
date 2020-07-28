@@ -79,9 +79,10 @@ def signup(request):
 
                         username = signupForm.cleaned_data.get('username')
                         raw_password = signupForm.cleaned_data.get('password')
-                        user = authenticate(username=username, password=raw_password)
-                        login(request, user)
-                        return redirect('home')                        
+                        # user = authenticate(username=username, password=raw_password)
+                        # login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                        login(request, username,raw_password, backend='django.contrib.auth.backends.ModelBackend')
+                        return redirect('/')                       
         return render(request, 'signup.html', {'signupForm': signupForm})
 
 def userProfile(request):
