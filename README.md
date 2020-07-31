@@ -1,3 +1,8 @@
+0.	* Kafka is run as a cluster on one or more servers
+    * Kafka stores a stream of records in categories called topics. Each record consists of a key, value and a timestamp
+    * Kafka works on the publish-subscribe pattern. It allows some of the applications to act as producers and publish the records to Kafka topics. Similarly, it allows some of the applications to act as consumers and subscribe to Kafka topics and process the records produced by it
+    * Alongside, Producer API and Consumer API, Kafka also offers Streams API for an application to work as a stream processor and Connector API through which we can connect Kafka to other existing applications and data systems
+
 1. Why Apache Kafka
 	* Decoupling of data streams & systems
 	* Horizontal scalability
@@ -10,6 +15,7 @@
 		* Similar to a table in a database (without all the constraints)
 		* We can have as many topics as we want
 		* A topic is identified by its name
+		* Topics in Kafka are always multi-subscriber. This means that a topic can have zero, one, or many consumers that subscribe to the data written to it.
 	* Topics are split in partitions
 		* Each partition is ordered
 		* Each message within a partition gets an incremental id, called offset
@@ -134,3 +140,44 @@
 
 15. Consumer with keys
     * $ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning --property print.key=true --property key.separator=:
+
+16.	Although Kafka can store persistent data, it is NOT a database.
+
+17.	Kafka acts as a universal data pipeline across multiple applications and services.
+
+18.	Consider connecting a legacy system to your architecture which does not know about Kafka: In such cases, Kafka offers a framework called Kafka Connect for us to connect to existing systems maintaining the universal data pipeline.
+
+19.	Kafka Streams make it possible to build, package and deploy applications without any need for separate stream processors or heavy and expensive infrastructure.
+
+20.	Kafka makes use of a tool called ZooKeeper which is a centralized service for a distributed environment like Kafka. It offers configuration service, synchronization service, and a naming registry for large distributed systems.
+
+21.	Introduction to Apache Kafka for Python Programmers (confluent-kafka) <br>
+	https://www.confluent.io/blog/introduction-to-apache-kafka-for-python-programmers/
+
+22.	Confluent Platform makes it easy to build real-time data pipelines and streaming applications by integrating data from multiple sources and locations into a single, central Event Streaming Platform for your company.
+
+23.	Kafka Brokers
+	Kafka brokers that form the messaging, data persistency and storage tier of Kafka.
+
+24.	* Producer API is a Java Client that allows an application to publish a stream records to one or more Kafka topics.
+
+	* Consumer API is a Java Client that allows an application to subscribe to one or more topics and process the stream of records produced to them.
+
+	* Streams API allows applications to act as a stream processor, consuming an input stream from one or more topics and producing an output stream to one or more output topics, effectively transforming the input streams to output streams.
+
+	* Connect API is a component that you can use to stream data between Kafka and other data systems in a scalable and reliable way. It makes it simple to configure connectors to move data into and out of Kafka. Kafka Connect can ingest entire databases or collect metrics from all your application servers into Kafka topics, making the data available for stream processing. Connectors can also deliver data from Kafka topics into secondary indexes like Elasticsearch or into batch systems such as Hadoop for offline analysis.
+
+25.	Confluent Schema Registry
+	With a messaging service like Kafka, services that interact with each other must agree on a common format, called a schema, for messages.
+
+	Confluent Schema Registry enables safe, zero downtime evolution of schemas by centralizing the management of schemas written for the Avro serialization system. It tracks all versions of schemas used for every topic in Kafka and only allows evolution of schemas according to user-defined compatibility settings. This gives developers confidence that they can safely modify schemas as necessary without worrying that doing so will break a different service they may not even be aware of.
+
+	Schema Registry also includes plugins for Kafka clients that handle schema storage and retrieval for Kafka messages that are sent in the Avro format.
+
+26.	Confluent REST Proxy
+	The Confluent REST Proxy makes it easy to work with Kafka from any language by providing a RESTful HTTP service for interacting with Kafka clusters. The REST Proxy supports all the core functionality: sending messages to Kafka, reading messages, both individually and as part of a consumer group, and inspecting cluster metadata, such as the list of topics and their settings.
+
+	The REST Proxy also integrates with Schema Registry. It can read and write Avro data, registering and looking up schemas in Schema Registry. Because it automatically translates JSON data to and from Avro, you can get all the benefits of centralized schema management from any language using only HTTP and JSON.
+
+27.	ksqlDB
+	ksqlDB enables you to build event streaming applications with the same ease and familiarity of building traditional applications on a relational database. It also simplifies the underlying architecture for these applications so you can build powerful, real-time systems with just a few SQL statements.
