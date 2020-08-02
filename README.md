@@ -156,7 +156,7 @@
 
 22.	Confluent Platform makes it easy to build real-time data pipelines and streaming applications by integrating data from multiple sources and locations into a single, central Event Streaming Platform for your company.
 
-23.	Kafka Brokers
+23.	Kafka Brokers<br>
 	Kafka brokers that form the messaging, data persistency and storage tier of Kafka.
 
 24.	* Producer API is a Java Client that allows an application to publish a stream records to one or more Kafka topics.
@@ -167,17 +167,35 @@
 
 	* Connect API is a component that you can use to stream data between Kafka and other data systems in a scalable and reliable way. It makes it simple to configure connectors to move data into and out of Kafka. Kafka Connect can ingest entire databases or collect metrics from all your application servers into Kafka topics, making the data available for stream processing. Connectors can also deliver data from Kafka topics into secondary indexes like Elasticsearch or into batch systems such as Hadoop for offline analysis.
 
-25.	Confluent Schema Registry
+25.	Confluent Schema Registry<br>
 	With a messaging service like Kafka, services that interact with each other must agree on a common format, called a schema, for messages.
 
 	Confluent Schema Registry enables safe, zero downtime evolution of schemas by centralizing the management of schemas written for the Avro serialization system. It tracks all versions of schemas used for every topic in Kafka and only allows evolution of schemas according to user-defined compatibility settings. This gives developers confidence that they can safely modify schemas as necessary without worrying that doing so will break a different service they may not even be aware of.
 
 	Schema Registry also includes plugins for Kafka clients that handle schema storage and retrieval for Kafka messages that are sent in the Avro format.
 
-26.	Confluent REST Proxy
+26.	Confluent REST Proxy<br>
 	The Confluent REST Proxy makes it easy to work with Kafka from any language by providing a RESTful HTTP service for interacting with Kafka clusters. The REST Proxy supports all the core functionality: sending messages to Kafka, reading messages, both individually and as part of a consumer group, and inspecting cluster metadata, such as the list of topics and their settings.
 
 	The REST Proxy also integrates with Schema Registry. It can read and write Avro data, registering and looking up schemas in Schema Registry. Because it automatically translates JSON data to and from Avro, you can get all the benefits of centralized schema management from any language using only HTTP and JSON.
 
-27.	ksqlDB
+27.	ksqlDB<br>
 	ksqlDB enables you to build event streaming applications with the same ease and familiarity of building traditional applications on a relational database. It also simplifies the underlying architecture for these applications so you can build powerful, real-time systems with just a few SQL statements.
+
+28.	Kafka as a Storage System<br>
+	Data written to Kafka is written to disk and replicated for fault-tolerance. Kafka allows producers to wait on acknowledgement. A write isn’t considered complete until it is fully replicated and guaranteed to persist even if the server written to fails.
+
+29.	The Consumer
+	* Push vs. Pull
+		* A pull-based system has the nicer property that the consumer simply falls behind and catches up when it can.
+		* Consumer always pulls all available messages after its current position in the log (or up to some configurable max size). So one gets optimal batching without introducing unnecessary latency.
+	* Consumer Position
+		Messaging systems add an acknowledgement feature which means that messages are only marked as sent not consumed when they are sent; the broker waits for a specific acknowledgement from the consumer to record the message as consumed. This strategy fixes the problem of losing messages, but creates new problems. First of all, if the consumer processes the message but fails before it can send an acknowledgement then the message will be consumed twice.
+
+30.	Unclean Leader Election: What if they all die?
+	* Wait for a replica in the ISR to come back to life and choose this replica as the leader (hopefully it still has all its data).
+    * Choose the first replica (not necessarily in the ISR) that comes back to life as the leader.
+
+31.	Availability and Durability Guarantees
+	When writing to Kafka, producers can choose whether they wait for the message to be acknowledged by 0,1 or all (-1) replicas.
+	By default, when acks=all, acknowledgement happens as soon as all the current in-sync replicas have received the message. 
